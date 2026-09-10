@@ -1,0 +1,40 @@
+{
+  "name": "aws-s3-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AWS S3 backend",
+  "type": "module",
+  "imports": {
+    "#app": "./src/app.js",
+    "#api/*": "./src/api/*",
+    "#config/*": "./config/*",
+    "#database": "./src/integrations/database/sequelize.js",
+    "#models": "./db/models/index.js",
+    "#modules/*": "./src/modules/*",
+    "#storage": "./src/integrations/storage/s3.js",
+    "#utils": "./src/utils/index.js"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:seed": "sequelize-cli db:seed:all",
+    "db:undo": "sequelize-cli db:migrate:undo"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1115.0",
+    "@aws-sdk/s3-request-presigner": "^3.1115.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.3",
+    "sequelize": "^6.37.8",
+    "sql-formatter": "^15.6.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "sequelize-cli": "^6.6.3"
+  }
+}
